@@ -21,7 +21,7 @@ class HomeTitle extends StatelessWidget {
     return Card(
       color: Colors.grey.shade300,
       child: InkWell(
-        onTap: () {
+        onTap: () async{
           switch (id) {
             case 1:
               Get.to(() => UserDetails());
@@ -42,10 +42,12 @@ class HomeTitle extends StatelessWidget {
               Get.to(() => Update());
               break;
             case 7:
-              homeController.deleteUser();
+             await homeController.deleteUser();
               break;
-              case 8:
-                Get.to(() => UserDetails(delay: true,));
+            case 8:
+              Get.to(() => UserDetails(
+                    delay: true,
+                  ));
               break;
             // default:
             //   print('yo');
